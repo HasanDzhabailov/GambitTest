@@ -15,20 +15,13 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
 	private val getHomeProductsUseCase: GetHomeProductsUseCase,
 	private val favoritesAddAndUpdateUseCase: FavoritesAddAndUpdateUseCase,
-	private val getFavoritesProductsUseCase: GetFavoritesProductsUseCase
+	private val getFavoritesProductsUseCase: GetFavoritesProductsUseCase,
 ) : ViewModel() {
 	private val _homeStateFlow = MutableStateFlow(ResourceState<List<Dish>>())
 	val homeStateFlow = _homeStateFlow.asStateFlow()
 
-
-
 	init {
 		getHomeProducts()
-
-	}
-
-	 fun getFavoritesProducts(): Flow<List<Dish>> {
-		return getFavoritesProductsUseCase.invoke()
 	}
 
 	private fun getHomeProducts() {
@@ -47,14 +40,20 @@ class HomeViewModel @Inject constructor(
 			}
 		}.launchIn(viewModelScope)
 	}
-	 fun addDishList(dishList: List<Dish>){
+
+	fun addDishList(dishList: List<Dish>) {
 		viewModelScope.launch {
 			favoritesAddAndUpdateUseCase.addDishList(dishList)
 		}
 	}
-	fun updateFavorites(dish: Dish){
+
+	fun updateFavorites(dish: Dish) {
 		viewModelScope.launch {
 			favoritesAddAndUpdateUseCase.updateFavoritesProduct(dish)
 		}
+	}
+
+	fun getFavoritesProducts(): Flow<List<Dish>> {
+		return getFavoritesProductsUseCase.invoke()
 	}
 }

@@ -1,6 +1,5 @@
 package com.example.gambittest.domain.use_case
 
-import com.example.gambittest.data.local.model.FavoritesProduct
 import com.example.gambittest.domain.model.Dish
 import com.example.gambittest.domain.repository.Repository
 import kotlinx.coroutines.flow.Flow
@@ -13,8 +12,7 @@ class GetFavoritesProductsUseCase @Inject constructor(private val repository: Re
 		try {
 			val items = repository.getFavoritesProducts()
 			emit(items)
-		}
-		catch (ex:SQLException){
+		} catch (ex: SQLException) {
 			ex.message
 		}
 	}

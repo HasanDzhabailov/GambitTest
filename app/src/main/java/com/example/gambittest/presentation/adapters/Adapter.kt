@@ -1,10 +1,7 @@
 package com.example.gambittest.presentation.adapters
 
-
 import android.annotation.SuppressLint
 import android.content.Context
-
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +10,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.gambittest.R
-
 import com.example.gambittest.databinding.DishItemBinding
 import com.example.gambittest.domain.model.Dish
-
 
 class Adapter(private val context: Context, private val listener: SwipeFavoritesListener) :
 	ListAdapter<Dish, Adapter.MyViewHolder>(DiffUtilProductList()) {
@@ -28,7 +23,6 @@ class Adapter(private val context: Context, private val listener: SwipeFavorites
 
 	override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 		holder.bind(getItem(position))
-
 	}
 
 	class MyViewHolder(
@@ -40,12 +34,10 @@ class Adapter(private val context: Context, private val listener: SwipeFavorites
 
 		init {
 			binding.Favorites.setOnClickListener(this)
-
 		}
 
 		private var statusClick = false
 		override fun onClick(v: View?) {
-
 			statusClick = !statusClick
 			checkClickFavorites(statusClick)
 			listener.onClick(product, statusClick)
@@ -54,7 +46,7 @@ class Adapter(private val context: Context, private val listener: SwipeFavorites
 		@SuppressLint("SetTextI18n")
 		fun bind(item: Dish) {
 			this.product = item
-			var count:Int = 0
+			var count: Int = 0
 			binding.apply {
 				DishesImage.load(product.image)
 				DishesName.text = product.name
@@ -62,20 +54,20 @@ class Adapter(private val context: Context, private val listener: SwipeFavorites
 
 				checkClickFavorites(product.isFavorite)
 
-				AddToCart.setOnClickListener{
+				AddToCart.setOnClickListener {
 					++count
 					AddToCart.visibility = View.GONE
 					quantity.text = count.toString()
 				}
-				ButtonMinus.setOnClickListener{
+				ButtonMinus.setOnClickListener {
 
 					--count
-					if (count==0) {
+					if (count == 0) {
 						AddToCart.visibility = View.VISIBLE
 					}
 					quantity.text = count.toString()
 				}
-				ButtonPlus.setOnClickListener{
+				ButtonPlus.setOnClickListener {
 					++count
 					quantity.text = count.toString()
 				}
@@ -85,9 +77,7 @@ class Adapter(private val context: Context, private val listener: SwipeFavorites
 		private fun checkClickFavorites(favorite: Boolean) {
 			if (favorite) binding.Favorites.setImageResource(R.drawable.ic_baseline_favorite_24)
 			else binding.Favorites.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-
 		}
-
 	}
 
 	class DiffUtilProductList : DiffUtil.ItemCallback<Dish>() {

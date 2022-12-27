@@ -12,7 +12,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetHomeProductsUseCase @Inject constructor (private val repository: Repository) {
+class GetHomeProductsUseCase @Inject constructor(private val repository: Repository) {
 	operator fun invoke(): Flow<ResponseNetwork<List<Dish>>> = flow {
 		try {
 			emit(ResponseNetwork.Loading())

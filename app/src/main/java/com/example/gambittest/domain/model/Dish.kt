@@ -9,5 +9,5 @@ data class Dish(
 	val name: String,
 	val image: String,
 	val price: Int,
-	var isFavorite: Boolean = false
+	var isFavorite: Boolean = false,
 )

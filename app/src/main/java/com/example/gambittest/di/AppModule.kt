@@ -33,7 +33,6 @@ class AppModule {
 		return db.DatabaseFavoritesDao()
 	}
 
-
 	@Singleton
 	@Provides
 

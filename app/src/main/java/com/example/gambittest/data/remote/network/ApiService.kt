@@ -1,7 +1,6 @@
 package com.example.gambittest.data.remote.network
 
 import com.example.gambittest.data.remote.model.DishDto
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
