@@ -10,6 +10,7 @@ data class DishDto(
 	val name: String,
 	val image: String,
 	val price: Int,
+	var isFavorite:Boolean = false
 )
 	fun DishDto.toMapper(): Dish = Dish(
 		id = id,
