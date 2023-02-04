@@ -27,4 +27,5 @@ https://user-images.githubusercontent.com/51163032/209734912-7700aacf-e97a-4979-
 
 Дизайн - https://www.figma.com/file/4X7rPqz2ta7hLwNgS2EtE2/Untitled?node-id=8%3A105&t=vZhH7iCbQszIgT9y-0
 
-Резюме: [Джабраилов Хасан-3.pdf](https://github.com/HasanDzhabailov/GambitTest/files/10311052/-3.pdf)
+Резюме: [Джабраилов Хасан-4.pdf](https://github.com/HasanDzhabailov/GambitTest/files/10608838/-4.pdf)
+
